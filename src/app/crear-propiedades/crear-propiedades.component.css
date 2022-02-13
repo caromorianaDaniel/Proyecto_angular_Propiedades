@@ -1,0 +1,36 @@
+form.Sol {
+  margin-left: 5%;
+  margin-right: 55%;
+  margin-bottom: 30px;
+  background-color: rgb(224, 224, 224);
+  border: 3px black solid;
+}
+form.Viv {
+  margin-left: 55%;
+  margin-right: 5%;
+  margin-bottom: 30px;
+  background-color: rgb(224, 224, 224);
+  border: 3px black solid;
+}
+form h2 {
+  color: black;
+  text-align: center;
+}
+ul {
+  margin-left: 20px;
+}
+ul.etiquetas {
+  text-align: left;
+}
+li {
+  display: inline;
+  text-align: left;
+  color: black;
+}
+h1 {
+  text-align: center;
+  color: black;
+}
+button {
+  margin: 5px;
+}

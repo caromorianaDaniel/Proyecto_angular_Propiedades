@@ -1,0 +1,213 @@
+<h1>Añadir Propiedad</h1>
+
+<form class="Sol">
+  <h2>Añadir Solares</h2>
+  <ul>
+    <li class="etiqueta"><label>Numero de la propiedad:</label></li>
+    <li class="datos"><input #numeroP type="text" />*</li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Calle de la propiedad:</label></li>
+    <li class="datos"><input #calle1 type="text" />*</li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Calle de la propiedad:</label></li>
+    <li class="datos"><input #calle2 type="text" /></li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Calle de la propiedad:</label></li>
+    <li class="datos"><input #calle3 type="text" /></li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Calle de la propiedad:</label></li>
+    <li class="datos"><input #calle4 type="text" /></li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Código Postal de la propiedad:</label></li>
+    <li class="datos">
+      <select #codpost>
+        <option selected>Seleccione su Código Postal</option>
+        <option
+          *ngFor="let ciudad of ciudades; let indice = index"
+          value="{{ ciudad.codpost }}"
+        >
+          {{ ciudad.codpost }}
+        </option>
+      </select>
+    </li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Precio por metro cuadrado:</label></li>
+    <li class="datos">
+      <input #preciom type="number" value="" />
+    </li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Metros cuadrados:</label></li>
+    <li class="datos">
+      <input #metrosc type="number" value="" />
+    </li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Propietario:</label></li>
+    <li class="datos">
+      <select #DNI>
+        <option selected>Seleccione su DNI</option>
+        <option *ngFor="let propt of propietarios" value="{{ propt._DNI }}">
+          {{ propt._DNI }}
+        </option>
+      </select>
+    </li>
+    <button (click)="getPropietarios()">Cargar Propietarios</button>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Edificable:</label></li>
+    <li class="datos"><input #edi type="checkbox" /></li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Acceso a Luz:</label></li>
+    <li class="datos"><input #luz type="checkbox" /></li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Acceso a Agua:</label></li>
+    <li class="datos"><input #agua type="checkbox" /></li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Lejanía del centro urbano:</label></li>
+    <li class="datos"><input #lejania type="text" /></li>
+  </ul>
+  <button
+    type="submit"
+    (click)="
+      add_sol(
+        numeroP.value,
+        calle1.value,
+        calle2.value,
+        calle3.value,
+        calle4.value,
+        codpost.value,
+        preciom.value,
+        metrosc.value,
+        DNI.value,
+        edi.value,
+        luz.value,
+        agua.value,
+        lejania.value
+      )
+    "
+  >
+    Guardar
+  </button>
+</form>
+<form class="Viv">
+  <h2>Añadir Vivienda</h2>
+  <ul>
+    <li class="etiqueta"><label>Numero de la propiedad:</label></li>
+    <li class="datos"><input #num2 type="text" />*</li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Calle de la propiedad:</label></li>
+    <li class="datos"><input #calle12 type="text" />*</li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Calle de la propiedad:</label></li>
+    <li class="datos"><input #calle22 type="text" /></li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Calle de la propiedad:</label></li>
+    <li class="datos"><input #calle32 type="text" /></li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Calle de la propiedad:</label></li>
+    <li class="datos"><input #calle42 type="text" /></li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Código Postal de la propiedad:</label></li>
+    <li class="datos">
+      <select #codpost2>
+        <option selected>Seleccione su Código Postal</option>
+        <option *ngFor="let ciudad of ciudades" value="{{ ciudad.codpost }}">
+          {{ ciudad.codpost }}
+        </option>
+      </select>
+    </li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Precio por metro cuadrado:</label></li>
+    <li class="datos">
+      <input #preciom2 type="number" value="" />
+    </li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Metros cuadrados:</label></li>
+    <li class="datos">
+      <input #metrosc2 type="number" />
+    </li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Propietario:</label></li>
+    <li class="datos">
+      <select #propietario2>
+        <option selected>Seleccione el DNI del comprador</option>
+        <option *ngFor="let propt of propietarios" value="{{ propt._DNI }}">
+          {{ propt._DNI }}
+        </option>
+      </select>
+    </li>
+    <button (click)="getPropietarios()">Cargar Propietarios</button>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Antiguedad:</label></li>
+    <li class="datos"><input #ant type="date" /></li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Número de Habitaciones:</label></li>
+    <li class="datos"><input #numha type="number" /></li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Número de Baños:</label></li>
+    <li class="datos"><input #numba type="number" /></li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Garage:</label></li>
+    <li class="datos"><input #garg type="checkbox" /></li>
+  </ul>
+  <ul>
+    <p>Equipación de la Cocina:</p>
+    <li class="etiqueta"><label>Horno:</label></li>
+    <li class="datos"><input #horno type="checkbox" /></li>
+    <li class="etiqueta"><label>Microondas:</label></li>
+    <li class="datos"><input #micro type="checkbox" /></li>
+    <li class="etiqueta"><label>Lavavajillas:</label></li>
+    <li class="datos"><input #lava type="checkbox" /></li>
+    <li class="etiqueta"><label>Frigorífico:</label></li>
+    <li class="datos"><input #frigo type="checkbox" /></li>
+  </ul>
+
+  <button
+    type="submit"
+    (click)="
+      add_viv(
+        num2.value,
+        calle12.value,
+        calle22.value,
+        calle32.value,
+        calle42.value,
+        codpost2.value,
+        preciom2.value,
+        metrosc2.value,
+        propietario2.value,
+        ant.value,
+        numha.value,
+        numba.value,
+        garg.value,
+        horno.value,
+        micro.value,
+        lava.value,
+        frigo.value
+      )
+    "
+  >
+    Guardar
+  </button>
+</form>

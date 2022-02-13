@@ -1,0 +1,18 @@
+<h2>Transacciones</h2>
+
+<ul class="transacciones">
+  <li *ngFor="let transaccion of transacciones">
+    <a routerLink="/transacciones/detail/{{ transaccion._identificador }}">
+      <span class="badge">{{ transaccion._identificador }}</span>
+      <span>Precio: {{ transaccion._precio }} €</span>
+      <span> Fecha: {{ transaccion._fecha }} €</span>
+    </a>
+    <button
+      class="delete"
+      title="delete transaccion"
+      (click)="delete(transaccion)"
+    >
+      x
+    </button>
+  </li>
+</ul>

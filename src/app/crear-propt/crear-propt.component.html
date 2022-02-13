@@ -1,0 +1,42 @@
+<h1>Añadir Propietario</h1>
+
+<form>
+  <ul>
+    <li class="etiqueta"><label>Introduzca su DNI:</label></li>
+    <li class="datos"><input #DNI type="text" placeholder="00000000A" />*</li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Introduzca su nombre:</label></li>
+    <li class="datos"><input #nom type="text" />*</li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Introduzca sus apellidos:</label></li>
+    <li class="datos"><input #ape type="text" />*</li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Fecha de nacimiento:</label></li>
+    <li class="datos"><input #nac type="date" />*</li>
+  </ul>
+  <p>Datos de la propiedad</p>
+  <ul>
+    <li class="etiqueta"><label>Identificador de la propiedad:</label></li>
+    <li class="datos">
+      <select #idpropd>
+        <option selected>Seleccione su Identificador</option>
+        <option
+          *ngFor="let propiedad of propiedades"
+          value="{{ propiedad._identificador }}"
+        >
+          {{ propiedad._identificador }}
+        </option>
+      </select>
+    </li>
+  </ul>
+  <button (click)="getPropiedades()">Cargar Propiedades</button>
+  <button
+    type="submit"
+    (click)="save(DNI.value, nom.value, ape.value, nac.value, idpropd.value)"
+  >
+    Guardar
+  </button>
+</form>
